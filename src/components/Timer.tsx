@@ -41,7 +41,11 @@ export default function Timer() {
       <div className="flex items-center gap-1 ml-auto">
         <button
           onClick={() => setRunning((prev) => !prev)}
-          className="flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold bg-red-500 hover:bg-red-600 text-white transition shadow-sm"
+          className={`flex items-center gap-1 px-3 py-1.5 rounded-lg text-xs font-semibold text-white transition shadow-sm ${
+            running
+              ? 'bg-red-500 hover:bg-red-600'
+              : 'bg-green-500 hover:bg-green-600'
+          }`}
           aria-label={running ? 'Pause timer' : 'Start timer'}
         >
           {running ? <Pause size={13} /> : <Play size={13} />}
