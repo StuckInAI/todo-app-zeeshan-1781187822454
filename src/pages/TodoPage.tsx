@@ -1,9 +1,12 @@
+import { useState } from 'react';
 import { useTodos } from '@/hooks/useTodos';
 import AddTodoForm from '@/components/AddTodoForm';
 import TodoItem from '@/components/TodoItem';
 import FilterBar from '@/components/FilterBar';
 import Timer from '@/components/Timer';
-import { ClipboardList } from 'lucide-react';
+import { ClipboardList, ChevronDown, ChevronUp } from 'lucide-react';
+
+const VISIBLE_COUNT = 2;
 
 export default function TodoPage() {
   const {
@@ -19,6 +22,11 @@ export default function TodoPage() {
     completedCount,
     totalCount,
   } = useTodos();
+
+  const [showAll, setShowAll] = useState<boolean>(false);
+
+  const visibleTodos = showAll ? todos : todos.slice(0, VISIBLE_COUNT);
+  const hasMore = todos.length > VISIBLE_COUNT;
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-rose-50 flex items-start justify-center px-4 py-12">
@@ -70,15 +78,35 @@ export default function TodoPage() {
                 </p>
               </div>
             ) : (
-              todos.map((todo) => (
-                <TodoItem
-                  key={todo.id}
-                  todo={todo}
-                  onToggle={toggleTodo}
-                  onDelete={deleteTodo}
-                  onEdit={editTodo}
-                />
-              ))
+              <>
+                {visibleTodos.map((todo) => (
+                  <TodoItem
+                    key={todo.id}
+                    todo={todo}
+                    onToggle={toggleTodo}
+                    onDelete={deleteTodo}
+                    onEdit={editTodo}
+                  />
+                ))}
+                {hasMore && (
+                  <button
+                    onClick={() => setShowAll((prev) => !prev)}
+                    className="flex items-center justify-center gap-1.5 py-2 text-sm font-medium text-red-500 hover:text-red-600 hover:bg-red-50 rounded-xl transition"
+                  >
+                    {showAll ? (
+                      <>
+                        <ChevronUp size={16} />
+                        Show less
+                      </>
+                    ) : (
+                      <>
+                        <ChevronDown size={16} />
+                        Show all ({todos.length - VISIBLE_COUNT} more)
+                      </>
+                    )}
+                  </button>
+                )}
+              </>
             )}
           </div>
         </div>
