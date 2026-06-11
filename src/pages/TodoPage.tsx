@@ -29,8 +29,8 @@ export default function TodoPage() {
   const hasMore = todos.length > VISIBLE_COUNT;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-rose-50 flex items-start justify-center px-4 py-12">
-      <div className="w-full max-w-lg">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-rose-50 flex flex-col items-center px-4 py-12">
+      <div className="w-full max-w-lg flex-1">
         {/* Header */}
         <div className="flex items-center gap-3 mb-8">
           <div className="w-10 h-10 rounded-xl bg-red-500 flex items-center justify-center shadow-md">
@@ -111,11 +111,18 @@ export default function TodoPage() {
           </div>
         </div>
 
-        {/* Footer */}
+        {/* Info text */}
         <p className="text-center text-xs text-slate-400 mt-6">
           Tasks are saved locally in your browser.
         </p>
       </div>
+
+      {/* Footer with Copyright */}
+      <footer className="w-full max-w-lg mt-10 pt-6 border-t border-slate-200 text-center">
+        <p className="text-sm text-slate-500">
+          © {new Date().getFullYear()} My Todos. All rights reserved.
+        </p>
+      </footer>
     </div>
   );
 }
