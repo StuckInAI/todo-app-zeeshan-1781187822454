@@ -20,11 +20,11 @@ export default function TodoPage() {
   } = useTodos();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-indigo-50 via-white to-purple-50 flex items-start justify-center px-4 py-12">
+    <div className="min-h-screen bg-gradient-to-br from-red-50 via-white to-rose-50 flex items-start justify-center px-4 py-12">
       <div className="w-full max-w-lg">
         {/* Header */}
         <div className="flex items-center gap-3 mb-8">
-          <div className="w-10 h-10 rounded-xl bg-indigo-500 flex items-center justify-center shadow-md">
+          <div className="w-10 h-10 rounded-xl bg-red-500 flex items-center justify-center shadow-md">
             <ClipboardList size={22} className="text-white" />
           </div>
           <div>

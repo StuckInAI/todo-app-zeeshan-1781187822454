@@ -31,7 +31,7 @@ export default function AddTodoForm({ onAdd }: AddTodoFormProps) {
           value={text}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setText(e.target.value)}
           placeholder="Add a new todo..."
-          className="flex-1 px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-transparent transition text-sm shadow-sm"
+          className="flex-1 px-4 py-3 rounded-xl border border-slate-200 bg-white text-slate-800 placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-red-400 focus:border-transparent transition text-sm shadow-sm"
         />
         <button
           type="submit"
@@ -39,7 +39,7 @@ export default function AddTodoForm({ onAdd }: AddTodoFormProps) {
           className={clsx(
             'flex items-center gap-1.5 px-4 py-3 rounded-xl font-semibold text-sm transition shadow-sm',
             text.trim()
-              ? 'bg-indigo-500 hover:bg-indigo-600 text-white cursor-pointer'
+              ? 'bg-red-500 hover:bg-red-600 text-white cursor-pointer'
               : 'bg-slate-200 text-slate-400 cursor-not-allowed'
           )}
         >
@@ -57,7 +57,7 @@ export default function AddTodoForm({ onAdd }: AddTodoFormProps) {
             className={clsx(
               'px-3 py-1 rounded-full text-xs font-semibold border transition',
               priority === opt.value
-                ? 'border-indigo-400 bg-indigo-50 text-indigo-600'
+                ? 'border-red-400 bg-red-50 text-red-600'
                 : 'border-slate-200 bg-white text-slate-500 hover:border-slate-300'
             )}
           >

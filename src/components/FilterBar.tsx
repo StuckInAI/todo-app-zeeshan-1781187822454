@@ -33,7 +33,7 @@ export default function FilterBar({
             className={clsx(
               'px-4 py-1.5 rounded-lg text-sm font-medium transition',
               filter === f.value
-                ? 'bg-white text-indigo-600 shadow-sm'
+                ? 'bg-white text-red-600 shadow-sm'
                 : 'text-slate-500 hover:text-slate-700'
             )}
           >
@@ -43,7 +43,7 @@ export default function FilterBar({
       </div>
       <div className="flex items-center gap-3">
         <span className="text-xs text-slate-500">
-          <span className="font-semibold text-indigo-500">{activeCount}</span> left
+          <span className="font-semibold text-red-500">{activeCount}</span> left
         </span>
         {completedCount > 0 && (
           <button

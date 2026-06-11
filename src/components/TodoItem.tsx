@@ -48,8 +48,8 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemP
         className={clsx(
           'flex-shrink-0 w-5 h-5 rounded-full border-2 flex items-center justify-center transition',
           todo.completed
-            ? 'bg-indigo-500 border-indigo-500 text-white'
-            : 'border-slate-300 hover:border-indigo-400'
+            ? 'bg-red-500 border-red-500 text-white'
+            : 'border-slate-300 hover:border-red-400'
         )}
         aria-label="Toggle todo"
       >
@@ -71,7 +71,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemP
           value={editText}
           onChange={(e: React.ChangeEvent<HTMLInputElement>) => setEditText(e.target.value)}
           onKeyDown={handleKeyDown}
-          className="flex-1 px-2 py-0.5 text-sm border border-indigo-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-300 text-slate-800"
+          className="flex-1 px-2 py-0.5 text-sm border border-red-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-300 text-slate-800"
         />
       ) : (
         <span
@@ -113,7 +113,7 @@ export default function TodoItem({ todo, onToggle, onDelete, onEdit }: TodoItemP
                 setEditText(todo.text);
                 setEditing(true);
               }}
-              className="p-1.5 rounded-lg text-slate-400 hover:bg-indigo-50 hover:text-indigo-500 transition"
+              className="p-1.5 rounded-lg text-slate-400 hover:bg-red-50 hover:text-red-500 transition"
               aria-label="Edit"
             >
               <Pencil size={15} />
