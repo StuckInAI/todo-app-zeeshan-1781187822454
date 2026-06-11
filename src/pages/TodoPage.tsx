@@ -2,6 +2,7 @@ import { useTodos } from '@/hooks/useTodos';
 import AddTodoForm from '@/components/AddTodoForm';
 import TodoItem from '@/components/TodoItem';
 import FilterBar from '@/components/FilterBar';
+import Timer from '@/components/Timer';
 import { ClipboardList } from 'lucide-react';
 
 export default function TodoPage() {
@@ -39,6 +40,9 @@ export default function TodoPage() {
 
         {/* Card */}
         <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 flex flex-col gap-5">
+          {/* Timer */}
+          <Timer />
+
           <AddTodoForm onAdd={addTodo} />
 
           {totalCount > 0 && (
